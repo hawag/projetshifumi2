@@ -1,0 +1,54 @@
+body {
+     background-color:  #f7975d;
+
+}
+
+@font-face{
+    font-family: "bellbottom";
+    src : url("../police/Belbott0.otf") ;
+}
+
+#blocOne {
+    color: whitesmoke;
+    width: 100%;
+   
+}
+
+.illustration {
+    width: 40%;
+    height: auto;
+}
+
+.joueur1 {
+    width: 80%;
+    height: auto;
+}
+
+.joueur2 {
+    width: 80%;
+    height: auto;
+}
+
+.deuxIllustration {
+    margin-bottom: 70px
+}
+
+.containerFooter {
+     background-color: #fbdba8;
+     position: absolute;
+     bottom: 0;
+     padding: 50px;
+     
+}
+
+/* Acceuil */ 
+
+.imgAccueil {
+    background-image: url("../images/acceuil.jpg");
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 550px;
+    background-color: #e27c3e ;
+   
+   
+}
