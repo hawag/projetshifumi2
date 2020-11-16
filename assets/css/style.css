@@ -1,5 +1,6 @@
 body {
      background-color:  #f7975d;
+     color: whitesmoke;
 
 }
 
@@ -19,17 +20,17 @@ body {
     height: auto;
 }
 
-.joueur1 {
+.playerOne {
     width: 80%;
     height: auto;
 }
 
-.joueur2 {
+.playerTwo {
     width: 80%;
     height: auto;
 }
 
-.deuxIllustration {
+.troisIllustration {
     margin-bottom: 70px
 }
 
@@ -37,18 +38,39 @@ body {
      background-color: #fbdba8;
      position: absolute;
      bottom: 0;
-     padding: 50px;
-     
+     padding: 45px;
+     font-size: 20px;
+     font-weight: bold;
 }
 
-/* Acceuil */ 
 
-.imgAccueil {
-    background-image: url("../images/acceuil.jpg");
-    background-repeat: no-repeat;
-    width: 50%;
-    height: 550px;
-    background-color: #e27c3e ;
-   
-   
+@media screen and (max-width: 700px){
+  
+
+    .troisIllustration {
+        max-height: 200px;
+        width: 300px;
+        display: flex ;
+       flex-wrap: nowrap;
+        
+    }
+
+    .player {
+        max-height: auto;
+        width: 140px;
+        height: auto;
+        margin-top: 10px;
+        
+    }
+
+    .containerFooter {
+        max-height: auto;
+        font-size: 10px;
+        width: 100%;
+        padding-top: 10px;
+    }
+ 
+
 }
+
+
