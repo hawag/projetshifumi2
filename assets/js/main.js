@@ -1,6 +1,11 @@
 
 $(function(){  
     var playerChoice = '';
+    var  playerScore  =  0 ;
+    var  computerScore  =  0 ;
+    var games = 0;
+    var purcent = ((playerScore + computerScore) / games) 
+    var result = purcent * 100
 
 
         $(".shifumi").mousedown(function(){
@@ -18,7 +23,7 @@ $(function(){
                 $(".playerOne").droppable({
 
                     drop:function(event, ui) {
-                        $(this).css('background' , '#fbdba8');
+                        //$(this).css('background' , '#fbdba8');
                                            
                         game(playerChoice);
                     },
@@ -32,7 +37,11 @@ $(function(){
 
 
 function game(playerChoice){ 
-    
+            games++;
+            purcent++;
+            result++;
+            
+
          console.log('Joueur : '+ playerChoice);
 
         var computerChoice = Math.random();
@@ -52,14 +61,16 @@ function game(playerChoice){
 
     // Create condition to watch who is winning
     if((computerChoice === "pierre" && playerChoice === "ciseaux") || (computerChoice === "feuille" && playerChoice=== "pierre") || (computerChoice === "ciseaux" && playerChoice === "feuille")) {
-        var sentenceWin = "Tu as perdu"
+        var sentenceWin = "Tu as perdu";
+        computerScore  =  computerScore  + 1 ;
         
     }
        
     
     else if((playerChoice === "pierre" && computerChoice === "ciseaux") || (playerChoice === "feuille" && computerChoice === "pierre") || (playerChoice === "ciseaux" && computerChoice === "feuille"))
     {
-        var sentenceWin = "C'est toi qui à gagné, bravo !"
+        var sentenceWin = "C'est toi qui à gagné, bravo !";
+        playerScore  =  playerScore  + 1 ;
        
     } 
     
@@ -71,7 +82,14 @@ function game(playerChoice){
     // Display the result
    
     alert(sentenceWin + "\nTon adversaire a joué " + computerChoice) ;
-    
 
+  var pts = 0;
+    $("#score").html(playerScore+' - '+computerScore);
+        pts = pts+1
+
+        $("#count").html(games);
+        pts = pts+1 ;
+ 
 }
 });
+
