@@ -4,9 +4,8 @@ body {
 
 }
 
-@font-face{
-    font-family: "bellbottom";
-    src : url("../police/Belbott0.otf") ;
+.molleCursive {
+  font-family:   'Molle', cursive;
 }
 
 #blocOne {
@@ -43,8 +42,11 @@ body {
      font-weight: bold;
 }
 
+.color {
+    color: #f7975d;
+}
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 800px){
   
 
     .troisIllustration {

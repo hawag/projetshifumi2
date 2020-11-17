@@ -1,42 +1,77 @@
 
- /*   
-    $("#draggable").click(function() {
-    $("#draggable").draggable();
-    $("#droppable").droppable();
-  
-    });
+$(function(){  
+    var playerChoice = '';
 
-});
- 
 
-const draggable = document.querySelectorAll(".draggable"); 
-
-    for (let i = 0; i <draggable.length; i++) {
-        draggable[i].addEventListener("click" , function() {
-
-            const joueur = draggable[i].innerHTML;
-            const robot = draggable[Math.floor(Math.random() * draggable.length)].innerHTML
-            let resultat="";
-
-            if (joueur === robot){   // Si le robot a la mm reponse que le joueur alors egalité
-                resulat = "Egalité";
-            }
-
-            else if 
-                (joueur === "Pierre" && robot === "Ciseau") ||  // Si le joeur a chosi Pierre et le robot ciseau alors il gagnera (les 3 possibilitès)
-                (joueur === "Feuille" && robot === "Pierre") ||
-                (joueur === "Ciseau" && robot === "Feuille") || 
-             { 
-                 alert (resultat = "Gagné");
-             }
-
-            else {
-                alert (resultat = "Perdu");
-            } 
+        $(".shifumi").mousedown(function(){
+            playerChoice = this.id;
+            console.log('mousedown : '+ playerChoice);
 
         });
+        
+    alert("Bonjour et bienvenue sur le site de shifumi. \n La pierre écrase les ciseaux et gagne. \n La feuille enveloppe la pierre et gagne. \n Les ciseaux découpent la feuille et gagnent.\n Voici les forces en général au Shifumi.");
+    
+    
+                $(".shifumi").draggable({revert:true});
+                $(".shifumi").draggable({revertDuration : 1500});
 
+                $(".playerOne").droppable({
+
+                    drop:function(event, ui) {
+                        $(this).css('background' , '#fbdba8');
+                                           
+                        game(playerChoice);
+                    },
+                    over:function(event, ui) {
+                        $(this).css('background' , 'orange');
+                    },
+                    out:function(event, ui) {
+                        $(this).css('background' , '#eeb57e');
+                    }          
+                });
+
+
+function game(playerChoice){ 
+    
+         console.log('Joueur : '+ playerChoice);
+
+        var computerChoice = Math.random();
+
+    //Créer des conditions pour le choix de l'ordinateur
+    if(computerChoice <=0.33){
+        computerChoice ="pierre";
+    }
+    else if(computerChoice <=0.66){
+        computerChoice="feuille";
+    }
+    else{
+        computerChoice="ciseaux";
     };
 
-    */ 
+    console.log('Ordinateur : '+ computerChoice);
 
+    // Create condition to watch who is winning
+    if((computerChoice === "pierre" && playerChoice === "ciseaux") || (computerChoice === "feuille" && playerChoice=== "pierre") || (computerChoice === "ciseaux" && playerChoice === "feuille")) {
+        var sentenceWin = "Tu as perdu"
+        
+    }
+       
+    
+    else if((playerChoice === "pierre" && computerChoice === "ciseaux") || (playerChoice === "feuille" && computerChoice === "pierre") || (playerChoice === "ciseaux" && computerChoice === "feuille"))
+    {
+        var sentenceWin = "C'est toi qui à gagné, bravo !"
+       
+    } 
+    
+    else 
+    {
+        var sentenceWin ="Match nul pour cette manche"
+    };
+
+    // Display the result
+   
+    alert(sentenceWin + "\nTon adversaire a joué " + computerChoice) ;
+    
+
+}
+});
