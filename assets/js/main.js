@@ -4,11 +4,9 @@ $(function(){
     var  playerScore  =  0 ;
     var  computerScore  =  0 ;
     var games = 0;
-    var purcent = ((playerScore + computerScore) / games) 
-    var result = purcent * 100
-
-
-        $(".shifumi").mousedown(function(){
+    var pts = 0;
+   
+   $(".shifumi").mousedown(function(){
             playerChoice = this.id;
             console.log('mousedown : '+ playerChoice);
 
@@ -38,9 +36,6 @@ $(function(){
 
 function game(playerChoice){ 
             games++;
-            purcent++;
-            result++;
-            
 
          console.log('Joueur : '+ playerChoice);
 
@@ -59,7 +54,7 @@ function game(playerChoice){
 
     console.log('Ordinateur : '+ computerChoice);
 
-    // Create condition to watch who is winning
+    // Condition pour le jeux
     if((computerChoice === "pierre" && playerChoice === "ciseaux") || (computerChoice === "feuille" && playerChoice=== "pierre") || (computerChoice === "ciseaux" && playerChoice === "feuille")) {
         var sentenceWin = "Tu as perdu";
         computerScore  =  computerScore  + 1 ;
@@ -79,17 +74,21 @@ function game(playerChoice){
         var sentenceWin ="Match nul pour cette manche"
     };
 
-    // Display the result
+    // Afficher le resultat
+    var purcent = ((playerScore / games) * 100) ;
+    console.log('pourcentage: '+ purcent);
    
     alert(sentenceWin + "\nTon adversaire a joué " + computerChoice) ;
 
-  var pts = 0;
     $("#score").html(playerScore+' - '+computerScore);
         pts = pts+1
 
         $("#count").html(games);
         pts = pts+1 ;
- 
+
+     $("#purcent").html(Math.round(purcent));
+    
 }
+
 });
 
